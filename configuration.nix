@@ -97,7 +97,6 @@
   # $ nix search wget
   nix.settings.experimental-features = ["nix-command" "flakes"];
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     google-chrome
     git

@@ -1,14 +1,22 @@
-{ config, pkgs, ... }:
+{config, pkgs,inputs, ... }:
 
 {
+
+	imports = [
+		./kickstart-nixvim/nixvim.nix
+	];
+
   # TODO please change the username & home directory to your own
   home.username = "omkar";
   home.homeDirectory = "/home/omkar";
 
+  
   # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-      ];
 
+
+  home.packages = with pkgs; [
+  
+	];
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
