@@ -2,9 +2,6 @@
 
 {
 
-	imports = [
-		./kickstart-nixvim/nixvim.nix
-	];
 
   # TODO please change the username & home directory to your own
   home.username = "omkar";
@@ -15,7 +12,9 @@
 
 
   home.packages = with pkgs; [
-  
+  	inputs.nixvim.packages.${pkgs.system}.default
+  	gcc
+	ripgrep
 	];
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
