@@ -16,7 +16,6 @@
     inputs@{
       nixpkgs,
       home-manager,
-      nixvim,
       ...
     }:
     {
@@ -28,15 +27,14 @@
 
             home-manager.nixosModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
+              home-manager = {
+                useGlobalPkgs = true;
 
-              # 👇 Import home.nix
-              home-manager.users.omkar = import ./home.nix;
-
-              # 👇 Pass `inputs` so home.nix can access `nixvim`
-              home-manager.extraSpecialArgs = {
-                inherit inputs;
+                useUserPackages = true;
+                users.omkar = import ./home.nix;
+                extraSpecialArgs = {
+                  inherit inputs;
+                };
               };
             }
           ];
